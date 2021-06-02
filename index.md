@@ -15,7 +15,7 @@ Lineup context stats from bball-index.com were used in order to adjust player bo
 Model assumes each star player's team's lineups when they are off the floor are average NBA players.
 Lack of data severely limits accuracy.
 Model heavily favours good and willing passers, so much so as poor scorers (ex. Draymond Green) can have a higher score than elite scorers (ex. Joel Embiid).
-With current data, model likely has more value as a measure of playmaking ability than global offense. Model seems to be biased towards perimeter players, however that is likely a result of preimeter players tending to be more skilled offensive players.
+With current data, model likely has more value as a measure of playmaking ability than global offense. Model seems to be biased towards perimeter players, however that is likely a result of perimeter players tending to be more skilled offensive players.
 
 Note: This model does not account for defensive impact in any way.
 

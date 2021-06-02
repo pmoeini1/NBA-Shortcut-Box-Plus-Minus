@@ -1,6 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
-import os
 
 # load datasets
 data = np.loadtxt("OBPM.csv", skiprows=1, delimiter=",", usecols=(2,3,4,5,6,7,8,9,10,11))
@@ -22,13 +20,10 @@ y = data[:,9]
 theta = np.linalg.inv(x.transpose() @ x) @ x.transpose() @ y
 
 # set up 5 teammate lineup context parameters to sum to mean value
-teammate_parameter = np.sum(theta[4:])/-5
+teammate_parameter = np.sum(theta[4:])/5
 
-for i in range(3,theta.shape[0]):
-    if i==3:
-        theta[i] -= teammate_parameter*5
-    else:
-        theta[i] = teammate_parameter
+for i in range(4,theta.shape[0]):
+    theta[i] = teammate_parameter
 
 # bring back full dataset
 data = np.loadtxt("OBPM.csv", skiprows=1, delimiter=",", usecols=(2,3,4,5,6,7,8,9,10,11))
@@ -41,37 +36,39 @@ for i in range(0,data.shape[0]):
     pred = x[i]@theta
     predictions.update({labels[i] : pred})
 
+print(predictions)
+
 """"
 parameters:
 scoring to      points       assists    efficiency   team spacing team playmaking  team scoring g  team penetration  team rim finishing
 [-0.50245917,  0.11545046,  0.50618238,  2.52768181, -0.01896833,  -0.01896833,    -0.01896833,     -0.01896833,     -0.01896833]
 results:
-{'Nikola': 12.05375814439736,
- 'James': 13.40147864159057,
- 'Giannis': 10.3184409510315,
- 'LeBron': 12.833410522245915,
- 'Kawhi': 11.353997117284033,
- 'Luka': 13.380860320285171,
- 'Kyrie': 11.203984268088014,
- 'Stephen': 12.965181203815277,
- 'Joel': 6.705436682113174,
- 'Paul': 9.462643034909762,
- 'Chris': 12.229986055830624,
- 'Jimmy': 10.357676715952262,
- 'Khris': 8.122857262654742,
- 'Damian': 13.127451862303516,
- 'Donovan': 9.591185708248105,
- 'Rudy': 2.8517533005562323,
- 'Ben': 8.217427005035992,
- 'Zion': 7.206444592382134,
- 'Bam': 7.335130431279087,
- 'Mike': 9.638002626698423,
- 'Trae': 13.477969103048988,
- 'Jamal': 7.299523774815037,
- 'Jayson': 8.78227785782699,
- 'Devin': 7.9831300543938,
- 'Karl-Anthony': 10.183635510063253,
- 'Bradley': 11.683395525986327,
- 'Draymond': 7.974983313232206,
- 'Jrue': 9.524617980389262}
+{'Nikola': 11.72078578786736,
+ 'James': 13.082615283218619,
+ 'Giannis': 9.993164411678617,
+ 'LeBron': 12.520960344854897,
+ 'Kawhi': 11.033081540998184,
+ 'Luka': 13.076875541788983,
+ 'Kyrie': 10.8874296548692,
+ 'Stephen': 12.621691230476547,
+ 'Joel': 6.380160142760291,
+ 'Paul': 9.154297293346543,
+ 'Chris': 11.920614205310454,
+ 'Jimmy': 10.044456956843533,
+ 'Khris': 7.81835942968008,
+ 'Damian': 12.805510177060718,
+ 'Donovan': 9.298488128278358,
+ 'Rudy': 2.501850146236571,
+ 'Ben': 7.919342353042263,
+ 'Zion': 6.871933072416708,
+ 'Bam': 7.013701800514765,
+ 'Mike': 9.33453090268071,
+ 'Trae': 13.175523487988224,
+ 'Jamal': 6.993999832883427,
+ 'Jayson': 8.484706260311736,
+ 'Devin': 7.680940966572273,
+ 'Karl-Anthony': 9.868363533040624,
+ 'Bradley': 11.37479325718387,
+ 'Draymond': 7.6999861127698335,
+ 'Jrue': 9.217554875022227}
 """""

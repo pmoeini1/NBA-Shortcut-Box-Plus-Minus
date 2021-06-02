@@ -1,37 +1,32 @@
-## Welcome to GitHub Pages
+## NBA Shortcut-Box-Plus-Minus
 
-You can use the [editor on GitHub](https://github.com/pmoeini1/NBA-Shortcut-Box-Plus-Minus/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Linear regression model to estimate the offensive impact an NBA player has for his team, given (pace-adjusted) points, assists, (estimated) scoring turnovers, points per true shooting attempt, and lineup context stats from bball-index.com as features, and offensive on/off as y-value.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Source Code
+For source code (.py, .ipynb, .csv files) see: https://github.com/pmoeini1/NBA-Shortcut-Box-Plus-Minus
 
-### Markdown
+### Statistical Decisions
+Box score stats were adjusted for pace in order to combat the difference in speed teams play at, and the differences in minutes played between star players.
+Scoring turnovers were estimated as total turnovers multiplied by 1 - ((2.2 x assists) / ((2.2 x assists) + true shooting attempts)).
+Playmaking turnovers were not included as to not penalize playmakers who try risky passes in order to create very easy shots for teammates, but also to not reward poor passing.
+Lineup context stats from bball-index.com were used in order to adjust player box-plus-minus scores based on teammate spacing, playmaking, rim finishing, scoring gravity, and penetration.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Weaknesses
+Model assumes each star player's team's lineups when they are off the floor are average NBA players.
+Lack of data severely limits accuracy.
+Model heavily favours good and willing passers, so much so as poor scorers (ex. Draymond Green) can have a higher score than elite scorers (ex. Joel Embiid).
+With current data, model likely has more value as a measure of playmaking ability than global offense. Model seems to be biased towards perimeter players, however that is likely a result of preimeter players tending to be more skilled offensive players.
 
-```markdown
-Syntax highlighted code block
+Note: This model does not account for defensive impact in any way.
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/pmoeini1/NBA-Shortcut-Box-Plus-Minus/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### Top 10 Box-Plus-Minus Scores
+1. Trae Young: 13.28
+2. James Harden: 13.19
+3. Luka Doncic: 13.18
+4. Damian Lillard: 12.91
+5. Stephen Curry: 12.74
+6. LeBron James: 12.63
+7. Nikola Jokic: 11.83
+8. Bradley Beal: 11.48
+9. Kawhi Leonard: 11.14
+10. Kyrie Irving: 10.99

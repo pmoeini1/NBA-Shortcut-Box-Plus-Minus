@@ -20,13 +20,13 @@ With current data, model likely has more value as a measure of playmaking abilit
 Note: This model does not account for defensive impact in any way.
 
 ### Top 10 Box-Plus-Minus Scores
-1. Trae Young: 13.48
-2. James Harden: 13.40
-3. Luka Doncic: 13.38
-4. Damian Lillard: 13.13
-5. Stephen Curry: 12.97
-6. LeBron James: 12.83
-7. Chris Paul: 12.23
-8. Nikola Jokic: 12.05
-9. Bradley Beal: 11.68
-10. Kawhi Leonard: 11.35
+1. Trae Young: 13.18
+2. James Harden: 13.08
+3. Luka Doncic: 13.08
+4. Damian Lillard: 12.81
+5. Stephen Curry: 12.62
+6. LeBron James: 12.52
+7. Chris Paul: 11.92
+8. Nikola Jokic: 11.72
+9. Bradley Beal: 11.37
+10. Kawhi Leonard: 11.03

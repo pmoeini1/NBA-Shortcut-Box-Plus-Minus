@@ -43,8 +43,8 @@ for i in range(0,data.shape[0]):
 
 """"
 parameters:
-scoring to      points    assists     efficiency    spacing     playmaking  scoring g   penetration  rim finishing
-[-1.06936268  0.15320714  0.53227259  2.19443738  -0.01710182  -0.01710182 -0.01710182  -0.01710182  -0.01710182]
+scoring to      points    assists     efficiency   team spacing team playmaking  team scoring g  team penetration  team rim finishing
+[-1.06936268  0.15320714  0.53227259  2.19443738  -0.01710182    -0.01710182     -0.01710182      -0.01710182       -0.01710182]
 results:
 {'Nikola': 12.05375814439736,
  'James': 13.40147864159057,

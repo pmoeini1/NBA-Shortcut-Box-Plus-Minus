@@ -12,7 +12,7 @@ Playmaking turnovers were not included as to not penalize playmakers who try ris
 Lineup context stats from bball-index.com were used in order to adjust player box-plus-minus scores based on teammate spacing, playmaking, rim finishing, scoring gravity, and penetration.
 
 ### Weaknesses
-Model assumes each star player's team's lineups when they are off the floor are average NBA players.
+Model assumes each star player's team's lineups when they are off the floor are of equal ability to contextual lineups.
 Lack of data severely limits accuracy.
 Model heavily favours good and willing passers, so much so as poor scorers (ex. Draymond Green) can have a higher score than elite scorers (ex. Joel Embiid).
 With current data, model likely has more value as a measure of playmaking ability than global offense. Model seems to be biased towards perimeter players, however that is likely a result of perimeter players tending to be more skilled offensive players.

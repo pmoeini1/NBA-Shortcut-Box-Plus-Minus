@@ -13,8 +13,8 @@ while (i < data.shape[0]):
     i+=1
 
 # set up x and y matrices
-x = data[:,0:9]
-y = data[:,9]
+x = data[:data.shape[0]-3,0:9]
+y = data[:data.shape[0]-3,9]
 
 # calculate parameters using normal equation
 theta = np.linalg.inv(x.transpose() @ x) @ x.transpose() @ y
@@ -36,39 +36,41 @@ for i in range(0,data.shape[0]):
     pred = x[i]@theta
     predictions.update({labels[i] : pred})
 
+print(theta)
 print(predictions)
 
 """"
 parameters:
-scoring to      points       assists    efficiency   team spacing team playmaking  team scoring g  team penetration  team rim finishing
-[-0.50245917,  0.11545046,  0.50618238,  2.52768181, -0.01896833,  -0.01896833,    -0.01896833,     -0.01896833,     -0.01896833]
+scoring to      points      assists   efficiency  tspacing   tplaymaking tscoring g  tpenetration trim finishing
+[-2.05371926  0.40601484  0.0505605   0.01376114 -0.02915143 -0.02915143 -0.02915143 -0.02915143 -0.02915143]
+
 results:
-{'Nikola': 11.72078578786736,
- 'James': 13.082615283218619,
- 'Giannis': 9.993164411678617,
- 'LeBron': 12.520960344854897,
- 'Kawhi': 11.033081540998184,
- 'Luka': 13.076875541788983,
- 'Kyrie': 10.8874296548692,
- 'Stephen': 12.621691230476547,
- 'Joel': 6.380160142760291,
- 'Paul': 9.154297293346543,
- 'Chris': 11.920614205310454,
- 'Jimmy': 10.044456956843533,
- 'Khris': 7.81835942968008,
- 'Damian': 12.805510177060718,
- 'Donovan': 9.298488128278358,
- 'Rudy': 2.501850146236571,
- 'Ben': 7.919342353042263,
- 'Zion': 6.871933072416708,
- 'Bam': 7.013701800514765,
- 'Mike': 9.33453090268071,
- 'Trae': 13.175523487988224,
- 'Jamal': 6.993999832883427,
- 'Jayson': 8.484706260311736,
- 'Devin': 7.680940966572273,
- 'Karl-Anthony': 9.868363533040624,
- 'Bradley': 11.37479325718387,
- 'Draymond': 7.6999861127698335,
- 'Jrue': 9.217554875022227}
+{'Nikola': 9.684098385561287,
+ 'James': 9.457862839716245,
+ 'Giannis': 10.119042399890942,
+ 'LeBron': 11.537266484853186,
+ 'Kawhi': 12.340060369053372,
+ 'Luka': 12.079828025265034,
+ 'Kyrie': 11.569052203708443,
+ 'Stephen': 15.240197586043623,
+ 'Joel': 7.716733150830752,
+ 'Paul': 8.67974682371616,
+ 'Chris': 7.061086794310482,
+ 'Jimmy': 7.62460526763918,
+ 'Khris': 5.788486900497886,
+ 'Damian': 13.27337024138134,
+ 'Donovan': 9.879720018564038,
+ 'Rudy': 0.0683880999467778,
+ 'Ben': 2.8059769045981326,
+ 'Zion': 7.1082143904660695,
+ 'Bam': 3.7604114568955307,
+ 'Mike': 6.367803568871713,
+ 'Trae': 10.712050512839715,
+ 'Jamal': 5.3940597689987015,
+ 'Jayson': 9.558771904902027,
+ 'Devin': 7.800100444512079,
+ 'Karl-Anthony': 10.980443513992626,
+ 'Bradley': 15.012948522515831,
+ 'Draymond': -1.0761837635643792,
+ 'Jrue': 6.8975709850766505}
 """""
